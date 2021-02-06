@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +44,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Update(Product product)
         {
-           
+            //Gönderdiğim ürün id'sine sahip olan listedeki ürünü bul
             Product productToUpdate = _products.SingleOrDefault(p => p.ProductId == product.ProductId);
             productToUpdate.ProductName = product.ProductName;
             productToUpdate.CategoryId = product.CategoryId;
@@ -62,6 +63,11 @@ namespace DataAccess.Concrete.InMemory
         }
 
         public Product Get(Expression<Func<Product, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
         {
             throw new NotImplementedException();
         }
